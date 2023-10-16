@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style type="text/css">
+        * {
+            margin: auto;
+        }
+ 
+        div {
+            width: 300px;
+            text-align: center;
+            line-height: 2;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 4;
+        }
+        input[type="date"]{
+            width: 165px;
+            height: 20px;  
+        }
+    </style>
+ 
+    <title>登记表</title>
+ 
+</head>
+ 
+<body>
+    <div class="title" >会员信息录入系统</div>
+    <div id="">
+        真实姓名：<input type="text" maxlength="15" size="20" id="name"><br>
+        真实年龄：<input type="text" maxlength="2" size="20" id="nian"><br>
+        出生日期：<input size="20" id="date" type="date"/><br>
+        电子邮箱：<input type="text" maxlength="30" size="20" id="dian" ><br>
+        联系方式：<input type="text" maxlength="11" size="20" id="lian" ><br>
+        <input type="button" onclick="add()" value="添加" id="ft">
+        <input type="button" onclick="myFunction()" value="重置" id="1reset">
+     </div> 
+ 
+    <!-- <form action=""> -->
+        <table width="600" border="1" cellspacing="0" id="tab1" align="center">
+            <caption>会员信息统计表</caption>
+            <tr>
+                <td>真实姓名</td>
+                <td>真实年龄</td>
+                <td>出生日期</td>
+                <td>电子邮箱</td>
+                <td>联系方式</td>
+                <td>操作</td>
+ 
+            </tr>
+ 
+        </table>
+ 
+    <!-- </form> -->
+ 
+    <script>
+        function add() {
+            var tb = document.getElementById("tab1");
+            var tt = document.createElement("tr");
+            var td1 = document.createElement("td");
+            var td2 = document.createElement("td");
+            var td3 = document.createElement("td");
+            var td4 = document.createElement("td");
+            var td5 = document.createElement("td");
+            var td6 = document.createElement("td");
+            var pa = document.createElement("a");
+
+            var name1 = document.getElementById("name").value;
+            var nian1 = document.getElementById("nian").value;
+            var date1 = document.getElementById("date").value;
+            var dian1 = document.getElementById("dian").value;
+            var lian1 = document.getElementById("lian").value;
+            
+        function myFunction() {
+            document.getElementById("").reset();
+        }
+
+            pa.setAttribute("onclick", "del(this)");
+            pa.setAttribute("href", "javascript:void(0)");//"javascript:void(0)"
+            pa.innerHTML = "删除"
+            td1.innerHTML = name1;
+            td2.innerHTML = nian1;
+            td3.innerHTML = date1;
+            td4.innerHTML = dian1;
+            td5.innerHTML = lian1;
+            // td6.innerHTML=bt;
+
+            tt.appendChild(td1);
+            tt.appendChild(td2);
+            tt.appendChild(td3);
+            tt.appendChild(td4);
+            tt.appendChild(td5);
+
+            td6.appendChild(pa);
+            tt.appendChild(td6);
+            
+            tb.appendChild(tt);
+ 
+ 
+        }
+        function del(obj) {
+ 
+            var judge = confirm("确认删除吗?")
+            if (judge = true) {
+                tdNode = obj.parentNode;
+                trNOde = tdNode.parentNode;
+                tbNOde = trNOde.parentNode;
+                tbNOde.removeChild(trNOde);
+            }
+ 
+        }
+    </script>
+</body>
+ 
+ 
+</html>
